@@ -6,8 +6,8 @@ import os
 st.set_page_config(page_title="🏆 World Cup 2026 Predictor", page_icon="⚽", layout="wide")
 
 # ----------------- กำหนดชื่อไฟล์ -----------------
-MATCHES_FILE = "FH_WorldCUP_2026_database.xlsx - Matches (สำหรับแอดมิน).csv"
-PREDICTIONS_FILE = "FH_WorldCUP_2026_database.xlsx - Predictions (ทายผล).csv"
+MATCHES_FILE = "matches.csv"
+PREDICTIONS_FILE = "predictions.csv"
 
 # ----------------- ฟังก์ชันหลัก -----------------
 def load_data():
