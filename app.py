@@ -11,7 +11,6 @@ PREDICTIONS_FILE = "predictions.csv"
 
 # ----------------- ฟังก์ชันหลัก -----------------
 def load_data():
-    # โหลดข้อมูลจาก CSV
     matches_df = pd.read_csv(MATCHES_FILE)
     preds_df = pd.read_csv(PREDICTIONS_FILE)
     return matches_df, preds_df
@@ -85,7 +84,9 @@ with tab2:
         if st.button("บันทึกการทายผล", type="primary"):
             mask = (preds_df["User_Email"] == user_select) & (preds_df["Match_ID"] == match_id)
             if mask.any():
-                preds_df.loc[mask, ["Predict_A", "Predict_B"]] = [pred_a, pred_b]
+                # --- จุดที่แก้ไข: สั่งบันทึกข้อมูลทีละคอลัมน์เพื่อความปลอดภัย 100% ---
+                preds_df.loc[mask, "Predict_A"] = pred_a
+                preds_df.loc[mask, "Predict_B"] = pred_b
             else:
                 new_pred = pd.DataFrame([{
                     "Prediction_ID": f"{user_select}_M{match_id}",
