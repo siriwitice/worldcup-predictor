@@ -131,11 +131,11 @@ with tab4:
     admin_match_id = int(admin_selected.split(":")[0].replace("Match ", ""))
     curr_match = matches_df[matches_df["Match_ID"] == admin_match_id].iloc[0]
     
-    col_a, col_b = st.columns(2)
+   col_a, col_b = st.columns(2)
     with col_a:
-        actual_a = st.number_input(f"สกอร์จริง {curr_match['Team_A']}", min_value=0, max_value=20, step=1, key="act_a")
+        actual_a = st.number_input(f"สกอร์จริง {curr_match['Team_A']}", min_value=0, max_value=20, step=1, key=f"act_a_{admin_match_id}")
     with col_b:
-        actual_b = st.number_input(f"สกอร์จริง {curr_match['Team_B']}", min_value=0, max_value=20, step=1, key="act_b")
+        actual_b = st.number_input(f"สกอร์จริง {curr_match['Team_B']}", min_value=0, max_value=20, step=1, key=f"act_b_{admin_match_id}")
         
     if st.button("ยืนยันผลการแข่งขัน (แข่งจบแล้ว)", type="primary"):
         # อัปเดตตาราง Matches
